@@ -1,6 +1,6 @@
 Name:       wireplumber
 Version:    0.4.1
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
@@ -116,5 +116,8 @@ managing PipeWire.
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Fri Jul 23 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
+
 * Tue Jul 06 2021 Peter Hutterer <peter.hutterer@redhat.com> 0.4.1-1
 - Initial package (#1976012)
