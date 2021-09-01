@@ -1,6 +1,6 @@
 Name:       wireplumber
-Version:    0.4.1
-Release:    2%{?dist}
+Version:    0.4.2
+Release:    1%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
@@ -71,33 +71,33 @@ managing PipeWire.
 %{_bindir}/wireplumber
 %{_bindir}/wpctl
 %{_bindir}/wpexec
-%dir %{_sysconfdir}/wireplumber
-%config(noreplace) %{_sysconfdir}/wireplumber/bluetooth.conf
-%dir %{_sysconfdir}/wireplumber/bluetooth.lua.d
-%config(noreplace) %{_sysconfdir}/wireplumber/bluetooth.lua.d/00-functions.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/bluetooth.lua.d/30-bluez-monitor.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/bluetooth.lua.d/50-bluez-config.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/bluetooth.lua.d/90-enable-all.lua
-%dir %{_sysconfdir}/wireplumber/common
-%config(noreplace) %{_sysconfdir}/wireplumber/common/00-functions.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/main.conf
-%dir %{_sysconfdir}/wireplumber/main.lua.d
-%config(noreplace) %{_sysconfdir}/wireplumber/main.lua.d/00-functions.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/main.lua.d/20-default-access.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/main.lua.d/30-alsa-monitor.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/main.lua.d/30-v4l2-monitor.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/main.lua.d/40-device-defaults.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/main.lua.d/50-alsa-config.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/main.lua.d/50-default-access-config.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/main.lua.d/50-v4l2-config.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/main.lua.d/90-enable-all.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/policy.conf
-%dir %{_sysconfdir}/wireplumber/policy.lua.d
-%config(noreplace) %{_sysconfdir}/wireplumber/policy.lua.d/00-functions.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/policy.lua.d/10-default-policy.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/policy.lua.d/50-endpoints-config.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/policy.lua.d/90-enable-all.lua
-%config(noreplace) %{_sysconfdir}/wireplumber/wireplumber.conf
+%dir %{_datadir}/wireplumber
+%config(noreplace) %{_datadir}/wireplumber/bluetooth.conf
+%dir %{_datadir}/wireplumber/bluetooth.lua.d
+%config(noreplace) %{_datadir}/wireplumber/bluetooth.lua.d/00-functions.lua
+%config(noreplace) %{_datadir}/wireplumber/bluetooth.lua.d/30-bluez-monitor.lua
+%config(noreplace) %{_datadir}/wireplumber/bluetooth.lua.d/50-bluez-config.lua
+%config(noreplace) %{_datadir}/wireplumber/bluetooth.lua.d/90-enable-all.lua
+%dir %{_datadir}/wireplumber/common
+%config(noreplace) %{_datadir}/wireplumber/common/00-functions.lua
+%config(noreplace) %{_datadir}/wireplumber/main.conf
+%dir %{_datadir}/wireplumber/main.lua.d
+%config(noreplace) %{_datadir}/wireplumber/main.lua.d/00-functions.lua
+%config(noreplace) %{_datadir}/wireplumber/main.lua.d/20-default-access.lua
+%config(noreplace) %{_datadir}/wireplumber/main.lua.d/30-alsa-monitor.lua
+%config(noreplace) %{_datadir}/wireplumber/main.lua.d/30-v4l2-monitor.lua
+%config(noreplace) %{_datadir}/wireplumber/main.lua.d/40-device-defaults.lua
+%config(noreplace) %{_datadir}/wireplumber/main.lua.d/50-alsa-config.lua
+%config(noreplace) %{_datadir}/wireplumber/main.lua.d/50-default-access-config.lua
+%config(noreplace) %{_datadir}/wireplumber/main.lua.d/50-v4l2-config.lua
+%config(noreplace) %{_datadir}/wireplumber/main.lua.d/90-enable-all.lua
+%config(noreplace) %{_datadir}/wireplumber/policy.conf
+%dir %{_datadir}/wireplumber/policy.lua.d
+%config(noreplace) %{_datadir}/wireplumber/policy.lua.d/00-functions.lua
+%config(noreplace) %{_datadir}/wireplumber/policy.lua.d/10-default-policy.lua
+%config(noreplace) %{_datadir}/wireplumber/policy.lua.d/50-endpoints-config.lua
+%config(noreplace) %{_datadir}/wireplumber/policy.lua.d/90-enable-all.lua
+%config(noreplace) %{_datadir}/wireplumber/wireplumber.conf
 %{_datadir}/wireplumber/
 %{_userunitdir}/wireplumber.service
 %{_userunitdir}/wireplumber@.service
@@ -116,6 +116,9 @@ managing PipeWire.
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Wed Sep 01 2021 Peter Hutterer <peter.hutterer@redhat.com> - 0.4.2-1
+- wireplumber 0.4.2
+
 * Fri Jul 23 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
 
