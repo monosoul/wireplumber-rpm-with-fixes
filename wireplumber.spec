@@ -21,6 +21,9 @@ BuildRequires:  gobject-introspection-devel
 BuildRequires:  python3-lxml doxygen
 BuildRequires:  systemd-rpm-macros
 
+# Make sure that we have -libs package in the same version
+Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
+
 Provides:       pipewire-session-manager
 Conflicts:      pipewire-session-manager
 
