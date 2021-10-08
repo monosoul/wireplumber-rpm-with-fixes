@@ -15,6 +15,7 @@ BuildRequires:  pkgconfig(gio-unix-2.0)
 BuildRequires:  pkgconfig(libspa-0.2) >= 0.2
 BuildRequires:  pkgconfig(libpipewire-0.3) >= 0.3.26
 BuildRequires:  pkgconfig(systemd)
+BuildRequires:  systemd-devel >= 184
 BuildRequires:  pkgconfig(lua)
 BuildRequires:  gobject-introspection-devel
 BuildRequires:  python3-lxml doxygen
