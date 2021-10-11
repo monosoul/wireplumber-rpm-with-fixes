@@ -1,11 +1,14 @@
 Name:       wireplumber
 Version:    0.4.3
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
 URL:        https://pipewire.pages.freedesktop.org/wireplumber/
 Source0:    https://gitlab.freedesktop.org/pipewire/%{name}/-/archive/%{version}/%{name}-%{version}.tar.bz2
+
+# From https://gitlab.freedesktop.org/pipewire/wireplumber/-/merge_requests/233
+Patch01:    0001-modules-fix-default-audio-format-segfault.patch
 
 BuildRequires:  meson gcc pkgconfig
 BuildRequires:  pkgconfig(glib-2.0)
@@ -51,7 +54,7 @@ convenience for writing the daemon's modules as well as external tools for
 managing PipeWire.
 
 %prep
-%autosetup
+%autosetup -p1
 
 %build
 %meson -Dsystem-lua=true \
@@ -120,6 +123,9 @@ managing PipeWire.
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Mon Oct 11 2021 Peter Hutterer <peter.hutterer@redhat.com> - 0.4.3-2
+- Fix segfault due to a typo (#2012606)
+
 * Fri Oct 07 2021 Wim Taymans <wim.taymans@redhat.com> - 0.4.3-1
 - wireplumber 0.4.3
 
