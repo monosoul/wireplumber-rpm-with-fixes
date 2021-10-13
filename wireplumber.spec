@@ -1,6 +1,6 @@
 Name:       wireplumber
 Version:    0.4.3
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
@@ -67,6 +67,9 @@ managing PipeWire.
 %install
 %meson_install
 
+# Create local config skeleton
+mkdir -p %{buildroot}%{_sysconfdir}/wireplumber/{bluetooth.lua.d,common,main.lua.d,policy.lua.d}
+
 %post
 %systemd_user_post %{name}.service
 
@@ -78,33 +81,11 @@ managing PipeWire.
 %{_bindir}/wireplumber
 %{_bindir}/wpctl
 %{_bindir}/wpexec
-%dir %{_datadir}/wireplumber
-%config(noreplace) %{_datadir}/wireplumber/bluetooth.conf
-%dir %{_datadir}/wireplumber/bluetooth.lua.d
-%config(noreplace) %{_datadir}/wireplumber/bluetooth.lua.d/00-functions.lua
-%config(noreplace) %{_datadir}/wireplumber/bluetooth.lua.d/30-bluez-monitor.lua
-%config(noreplace) %{_datadir}/wireplumber/bluetooth.lua.d/50-bluez-config.lua
-%config(noreplace) %{_datadir}/wireplumber/bluetooth.lua.d/90-enable-all.lua
-%dir %{_datadir}/wireplumber/common
-%config(noreplace) %{_datadir}/wireplumber/common/00-functions.lua
-%config(noreplace) %{_datadir}/wireplumber/main.conf
-%dir %{_datadir}/wireplumber/main.lua.d
-%config(noreplace) %{_datadir}/wireplumber/main.lua.d/00-functions.lua
-%config(noreplace) %{_datadir}/wireplumber/main.lua.d/20-default-access.lua
-%config(noreplace) %{_datadir}/wireplumber/main.lua.d/30-alsa-monitor.lua
-%config(noreplace) %{_datadir}/wireplumber/main.lua.d/30-v4l2-monitor.lua
-%config(noreplace) %{_datadir}/wireplumber/main.lua.d/40-device-defaults.lua
-%config(noreplace) %{_datadir}/wireplumber/main.lua.d/50-alsa-config.lua
-%config(noreplace) %{_datadir}/wireplumber/main.lua.d/50-default-access-config.lua
-%config(noreplace) %{_datadir}/wireplumber/main.lua.d/50-v4l2-config.lua
-%config(noreplace) %{_datadir}/wireplumber/main.lua.d/90-enable-all.lua
-%config(noreplace) %{_datadir}/wireplumber/policy.conf
-%dir %{_datadir}/wireplumber/policy.lua.d
-%config(noreplace) %{_datadir}/wireplumber/policy.lua.d/00-functions.lua
-%config(noreplace) %{_datadir}/wireplumber/policy.lua.d/10-default-policy.lua
-%config(noreplace) %{_datadir}/wireplumber/policy.lua.d/50-endpoints-config.lua
-%config(noreplace) %{_datadir}/wireplumber/policy.lua.d/90-enable-all.lua
-%config(noreplace) %{_datadir}/wireplumber/wireplumber.conf
+%dir %{_sysconfdir}/wireplumber
+%dir %{_sysconfdir}/wireplumber/bluetooth.lua.d
+%dir %{_sysconfdir}/wireplumber/common
+%dir %{_sysconfdir}/wireplumber/main.lua.d
+%dir %{_sysconfdir}/wireplumber/policy.lua.d
 %{_datadir}/wireplumber/
 %{_userunitdir}/wireplumber.service
 %{_userunitdir}/wireplumber@.service
@@ -123,6 +104,9 @@ managing PipeWire.
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Wed Oct 13 2021 Neal Gompa <ngompa@fedoraproject.org> - 0.4.3-3
+- Fix config setup in file list (#2013861)
+
 * Mon Oct 11 2021 Peter Hutterer <peter.hutterer@redhat.com> - 0.4.3-2
 - Fix segfault due to a typo (#2012606)
 
