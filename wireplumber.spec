@@ -126,7 +126,7 @@ managing PipeWire.
 * Mon Oct 11 2021 Peter Hutterer <peter.hutterer@redhat.com> - 0.4.3-2
 - Fix segfault due to a typo (#2012606)
 
-* Fri Oct 07 2021 Wim Taymans <wim.taymans@redhat.com> - 0.4.3-1
+* Fri Oct 08 2021 Wim Taymans <wim.taymans@redhat.com> - 0.4.3-1
 - wireplumber 0.4.3
 
 * Wed Sep 01 2021 Peter Hutterer <peter.hutterer@redhat.com> - 0.4.2-1
