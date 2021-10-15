@@ -1,14 +1,11 @@
 Name:       wireplumber
-Version:    0.4.3
-Release:    3%{?dist}
+Version:    0.4.4
+Release:    1%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
 URL:        https://pipewire.pages.freedesktop.org/wireplumber/
 Source0:    https://gitlab.freedesktop.org/pipewire/%{name}/-/archive/%{version}/%{name}-%{version}.tar.bz2
-
-# From https://gitlab.freedesktop.org/pipewire/wireplumber/-/merge_requests/233
-Patch01:    0001-modules-fix-default-audio-format-segfault.patch
 
 BuildRequires:  meson gcc pkgconfig
 BuildRequires:  pkgconfig(glib-2.0)
@@ -61,7 +58,8 @@ managing PipeWire.
        -Ddoc=disabled \
        -Dsystemd=enabled \
        -Dsystemd-user-service=true \
-       -Dintrospection=enabled
+       -Dintrospection=enabled \
+       -Delogind=disabled
 %meson_build
 
 %install
@@ -104,6 +102,9 @@ mkdir -p %{buildroot}%{_sysconfdir}/wireplumber/{bluetooth.lua.d,common,main.lua
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Fri Oct 15 2021 Wim Taymans <wim.taymans@redhat.com> - 0.4.4-1
+- wireplumber 0.4.4
+
 * Wed Oct 13 2021 Neal Gompa <ngompa@fedoraproject.org> - 0.4.3-3
 - Fix config setup in file list (#2013861)
 
