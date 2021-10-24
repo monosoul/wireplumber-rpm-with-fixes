@@ -1,6 +1,6 @@
 Name:       wireplumber
 Version:    0.4.4
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
@@ -74,6 +74,13 @@ mkdir -p %{buildroot}%{_sysconfdir}/wireplumber/{bluetooth.lua.d,common,main.lua
 %preun
 %systemd_user_preun %{name}.service
 
+%triggerun -- fedora-release < 35
+# When upgrading to Fedora Linux 35, transition to WirePlumber by default
+if [ -x "/usr/lib/systemd/systemd-update-helper" ]; then
+    # Initial installation
+    /usr/lib/systemd/systemd-update-helper install-user-units %{name}.service || :
+fi
+
 %files
 %license LICENSE
 %{_bindir}/wireplumber
@@ -102,6 +109,9 @@ mkdir -p %{buildroot}%{_sysconfdir}/wireplumber/{bluetooth.lua.d,common,main.lua
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Sun Oct 24 2021 Neal Gompa <ngompa@fedoraproject.org> - 0.4.4-2
+- Ensure WirePlumber activates on upgrade to F35+ (#2016253)
+
 * Fri Oct 15 2021 Wim Taymans <wim.taymans@redhat.com> - 0.4.4-1
 - wireplumber 0.4.4
 
