@@ -1,6 +1,6 @@
 Name:       wireplumber
-Version:    0.4.4
-Release:    3%{?dist}
+Version:    0.4.5
+Release:    1%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
@@ -109,6 +109,9 @@ fi
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Thu Nov 11 2021 Wim Taymans <wim.taymans@redhat.com> - 0.4.5-1
+- wireplumber 0.4.5
+
 * Tue Nov 02 2021 Neal Gompa <ngompa@fedoraproject.org> - 0.4.4-3
 - Try again for WirePlumber preset upgrades to F35+ (#2016253)
 
