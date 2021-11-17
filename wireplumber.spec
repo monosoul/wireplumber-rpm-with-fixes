@@ -1,6 +1,6 @@
 Name:       wireplumber
 Version:    0.4.5
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
@@ -69,7 +69,7 @@ managing PipeWire.
 # Create local config skeleton
 mkdir -p %{buildroot}%{_sysconfdir}/wireplumber/{bluetooth.lua.d,common,main.lua.d,policy.lua.d}
 
-%post
+%posttrans
 %systemd_user_post %{name}.service
 
 %preun
@@ -109,6 +109,10 @@ fi
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Wed Nov 17 2021 Peter Hutterer <peter.hutterer@redhat.com> - 0.4.5-2
+- Move the systemd scriptlet to posttrans so we can dnf swap with
+  media-session (#2022584)
+
 * Thu Nov 11 2021 Wim Taymans <wim.taymans@redhat.com> - 0.4.5-1
 - wireplumber 0.4.5
 
