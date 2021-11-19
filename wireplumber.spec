@@ -1,11 +1,20 @@
 Name:       wireplumber
 Version:    0.4.5
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
 URL:        https://pipewire.pages.freedesktop.org/wireplumber/
 Source0:    https://gitlab.freedesktop.org/pipewire/%{name}/-/archive/%{version}/%{name}-%{version}.tar.bz2
+
+## upstream patches
+Patch0001:      0001-policy-node-Remove-direction-check.patch
+Patch0002:      0002-m-reserve-device-replace-the-hash-table-key-on-new-i.patch
+Patch0003:      0003-policy-node-wait-for-nodes-when-we-become-unlinked.patch
+
+## upstreamable patches
+
+## fedora patches
 
 BuildRequires:  meson gcc pkgconfig
 BuildRequires:  pkgconfig(glib-2.0)
@@ -109,6 +118,10 @@ fi
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Fri Nov 19 2021 Wim Taymans <wim.taymans@redhat.com> - 0.4.5-3
+- Add some upstream patches for OBS audio output capture and
+  device switching.
+
 * Wed Nov 17 2021 Peter Hutterer <peter.hutterer@redhat.com> - 0.4.5-2
 - Move the systemd scriptlet to posttrans so we can dnf swap with
   media-session (#2022584)
