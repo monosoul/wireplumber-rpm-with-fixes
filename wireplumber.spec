@@ -1,5 +1,5 @@
 Name:       wireplumber
-Version:    0.4.6
+Version:    0.4.7
 Release:    1%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
@@ -115,6 +115,9 @@ fi
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Thu Jan 13 2022 Wim Taymans <wim.taymans@redhat.com> - 0.4.7-1
+- wireplumber 0.4.7
+
 * Fri Jan 07 2022 Wim Taymans <wim.taymans@redhat.com> - 0.4.6-1
 - wireplumber 0.4.6
 
