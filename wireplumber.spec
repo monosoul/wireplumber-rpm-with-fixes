@@ -1,6 +1,6 @@
 Name:       wireplumber
-Version:    0.4.7
-Release:    3%{?dist}
+Version:    0.4.8
+Release:    1%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
@@ -8,7 +8,6 @@ URL:        https://pipewire.pages.freedesktop.org/wireplumber/
 Source0:    https://gitlab.freedesktop.org/pipewire/%{name}/-/archive/%{version}/%{name}-%{version}.tar.bz2
 
 ## upstream patches
-Patch0001:  0001-default-nodes-handle-nodes-without-Routes.patch
 
 ## upstreamable patches
 
@@ -116,10 +115,13 @@ fi
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Mon Feb 7 2022 Wim Taymans <wim.taymans@redhat.com> - 0.4.8-1
+- wireplumber 0.4.8
+
 * Sat Jan 22 2022 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.7-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
 
-* Fri Jan 13 2022 Wim Taymans <wim.taymans@redhat.com> - 0.4.7-2
+* Fri Jan 14 2022 Wim Taymans <wim.taymans@redhat.com> - 0.4.7-2
 - Add patch to fix default device.
 
 * Thu Jan 13 2022 Wim Taymans <wim.taymans@redhat.com> - 0.4.7-1
