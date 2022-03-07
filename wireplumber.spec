@@ -1,6 +1,6 @@
 Name:       wireplumber
 Version:    0.4.8
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
@@ -8,6 +8,7 @@ URL:        https://pipewire.pages.freedesktop.org/wireplumber/
 Source0:    https://gitlab.freedesktop.org/pipewire/%{name}/-/archive/%{version}/%{name}-%{version}.tar.bz2
 
 ## upstream patches
+Patch0001:  0001-si-audio-adapter-relax-format-parsing.patch
 
 ## upstreamable patches
 
@@ -115,6 +116,9 @@ fi
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Mon Mar 7 2022 Wim Taymans <wim.taymans@redhat.com> - 0.4.8-2
+- Add patch to fix openal and WINE format negotiation.
+
 * Mon Feb 7 2022 Wim Taymans <wim.taymans@redhat.com> - 0.4.8-1
 - wireplumber 0.4.8
 
