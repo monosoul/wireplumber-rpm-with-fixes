@@ -1,6 +1,6 @@
 Name:       wireplumber
 Version:    0.4.8
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
@@ -8,7 +8,11 @@ URL:        https://pipewire.pages.freedesktop.org/wireplumber/
 Source0:    https://gitlab.freedesktop.org/pipewire/%{name}/-/archive/%{version}/%{name}-%{version}.tar.bz2
 
 ## upstream patches
-Patch0001:  0001-si-audio-adapter-relax-format-parsing.patch
+Patch0001:   0001-si-audio-adapter-relax-format-parsing.patch
+# Pipewire throws I/O error when attempting to play sound @ aarch64
+# https://bugzilla.redhat.com/show_bug.cgi?id=2064389
+# https://gitlab.freedesktop.org/pipewire/wireplumber/-/commit/e429db7e8c266045aee25e153fb2308bd61fe233
+Patch0002:   e429db7e8c266045aee25e153fb2308bd61fe233.patch
 
 ## upstreamable patches
 
@@ -116,6 +120,9 @@ fi
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Wed Mar 16 2022 Frantisek Zatloukal <fzatlouk@redhat.com> - 0.4.8-3
+- Backport e429db7e8c266045aee25e153fb2308bd61fe233 to fix sound on aarch64
+
 * Mon Mar 7 2022 Wim Taymans <wim.taymans@redhat.com> - 0.4.8-2
 - Add patch to fix openal and WINE format negotiation.
 
