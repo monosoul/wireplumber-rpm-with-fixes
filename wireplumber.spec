@@ -1,6 +1,6 @@
 Name:       wireplumber
 Version:    0.4.11
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
@@ -8,6 +8,8 @@ URL:        https://pipewire.pages.freedesktop.org/wireplumber/
 Source0:    https://gitlab.freedesktop.org/pipewire/%{name}/-/archive/%{version}/%{name}-%{version}.tar.bz2
 
 ## upstream patches
+Patch0001:	0001-alsa-use-obj_type-as-a-variable-name-to-avoid-shadow.patch
+Patch0002:	0002-dbus-fix-crash-when-trying-to-reconnect.patch
 
 ## upstreamable patches
 
@@ -115,6 +117,11 @@ fi
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Wed Jul 13 2022 Wim Taymans <wim.taymans@redhat.com> - 0.4.11-2
+- Add patch to avoid crashes in VM
+- Add patch to avoid dbus crash
+- Resolves: rhbz#2104986
+
 * Tue Jul 5 2022 Wim Taymans <wim.taymans@redhat.com> - 0.4.11-1
 - wireplumber 0.4.11
 
