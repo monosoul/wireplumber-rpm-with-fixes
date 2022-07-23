@@ -1,6 +1,6 @@
 Name:       wireplumber
 Version:    0.4.11
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
@@ -117,6 +117,9 @@ fi
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Sat Jul 23 2022 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.11-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
+
 * Wed Jul 13 2022 Wim Taymans <wim.taymans@redhat.com> - 0.4.11-2
 - Add patch to avoid crashes in VM
 - Add patch to avoid dbus crash
