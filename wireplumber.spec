@@ -1,6 +1,6 @@
 Name:       wireplumber
 Version:    0.4.11
-Release:    3%{?dist}
+Release:    4%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
@@ -10,6 +10,8 @@ Source0:    https://gitlab.freedesktop.org/pipewire/%{name}/-/archive/%{version}
 ## upstream patches
 Patch0001:	0001-alsa-use-obj_type-as-a-variable-name-to-avoid-shadow.patch
 Patch0002:	0002-dbus-fix-crash-when-trying-to-reconnect.patch
+Patch0003:	0003-policy-node-fix-potential-rescan-loop.patch
+Patch0004:	0004-m-si-link-don-t-wait-for-establish-before-activation.patch
 
 ## upstreamable patches
 
@@ -117,6 +119,9 @@ fi
 %{_datadir}/gir-1.0/Wp-0.4.gir
 
 %changelog
+* Thu Aug 04 2022 Ville-Pekka Vainio <vpvainio@iki.fi> - 0.4.11-4
+- Add two patches to fix a rescan loop with Bluetooth
+
 * Sat Jul 23 2022 Fedora Release Engineering <releng@fedoraproject.org> - 0.4.11-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
 
