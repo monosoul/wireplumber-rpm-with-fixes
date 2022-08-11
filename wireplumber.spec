@@ -1,6 +1,6 @@
 Name:       wireplumber
 Version:    0.4.11
-Release:    3%{?dist}
+Release:    4%{?dist}
 Summary:    A modular session/policy manager for PipeWire
 
 License:    MIT
