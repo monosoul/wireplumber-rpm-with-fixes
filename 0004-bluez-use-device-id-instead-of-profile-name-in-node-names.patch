@@ -1,0 +1,33 @@
+From 166805563a82f1b07df8b84fd77520ef1a076957 Mon Sep 17 00:00:00 2001
+From: Pauli Virtanen <pav@iki.fi>
+Date: Mon, 11 Jul 2022 18:19:03 +0300
+Subject: [PATCH] bluez: use device id instead of profile name in node names
+
+Don't include profile name in node names for HFP and A2DP.  Instead,
+append the id number from the spa.bluez5 backend.  The backend takes
+care of choosing the unique id numbers appropriately.
+
+This makes the sink/source names the same for A2DP and HFP.  This allows
+outputs directed to the Bluetooth device to remain there when switching
+profiles between A2DP and HFP, without needing to determine the new
+sink/source name.
+---
+ src/scripts/monitors/bluez.lua | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/scripts/monitors/bluez.lua b/src/scripts/monitors/bluez.lua
+index dfe2e58a..a4e9a9f5 100644
+--- a/src/scripts/monitors/bluez.lua
++++ b/src/scripts/monitors/bluez.lua
+@@ -62,7 +62,7 @@ function createNode(parent, id, type, factory, properties)
+       ((factory:find("sink") and "bluez_output") or
+        (factory:find("source") and "bluez_input" or factory)) .. "." ..
+       (properties["api.bluez5.address"] or dev_props["device.name"]) .. "." ..
+-      (properties["api.bluez5.profile"] or "unknown")
++      tostring(id)
+   -- sanitize name
+   properties["node.name"] = name:gsub("([^%w_%-%.])", "_")
+ 
+-- 
+GitLab
+

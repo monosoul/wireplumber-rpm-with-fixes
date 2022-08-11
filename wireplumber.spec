@@ -10,6 +10,8 @@ Source0:    https://gitlab.freedesktop.org/pipewire/%{name}/-/archive/%{version}
 ## upstream patches
 Patch0001:	0001-alsa-use-obj_type-as-a-variable-name-to-avoid-shadow.patch
 Patch0002:	0002-dbus-fix-crash-when-trying-to-reconnect.patch
+Patch0003:	0003-policy-node-fix-potential-rescan-loop.patch
+Patch0004:	0004-bluez-use-device-id-instead-of-profile-name-in-node-names.patch
 
 ## upstreamable patches
 
